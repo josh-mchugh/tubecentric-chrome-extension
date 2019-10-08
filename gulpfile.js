@@ -4,14 +4,23 @@ var del = require('del');
 
 var $ = gulpLoadPlugins();
 
-gulp.task('dist:clean', del.bind(null, ['dist']));
+gulp.task('init:fomantic', function() {
+    return gulp.src('fomantic/', {read: false})
+        .pipe($.shell("cd fomantic && gulp build"));
+});
 
-gulp.task('dist:locales', function() {
+gulp.task('init', gulp.series(
+    'init:fomantic'
+));
+    
+gulp.task('build:clean', del.bind(null, ['dist']));
+
+gulp.task('build:locales', function() {
     return gulp.src('app/_locales/**/*')
         .pipe(gulp.dest('dist/_locales'));
 });
 
-gulp.task('dist:images', function() {
+gulp.task('build:images', function() {
     return gulp.src('app/images/**/*')
         .pipe($.if($.if.isFile, $.cache($.imagemin({
             progressive: true,
@@ -27,7 +36,7 @@ gulp.task('dist:images', function() {
         .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('dist:background', function() {
+gulp.task('build:background', function() {
     return gulp.src('app/components/background/**/*.js')
         .pipe($.plumber())
         .pipe($.babel({presets: ['env']}))
@@ -37,39 +46,39 @@ gulp.task('dist:background', function() {
         .pipe(gulp.dest('dist/background'));
 });
 
-gulp.task('dist:popover', function() {
+gulp.task('build:popover', function() {
     return gulp.src('app/components/popup', {read: false})
         .pipe($.shell("npx vue-cli-service build .\\app\\components\\popup\\src\\main.js --dest dist/popup --mode popup --no-clean"))
 });
 
-gulp.task('dist:options', function() {
+gulp.task('build:options', function() {
     return gulp.src('app/components/options', {read: false})
         .pipe($.shell("npx vue-cli-service build .\\app\\components\\options\\src\\main.js --dest dist/options --mode options --no-clean"))
 });
 
-gulp.task('dist:content-scripts', function() {
+gulp.task('build:content-scripts', function() {
     return gulp.src('app/components/content-scripts', {read: false})
         .pipe($.shell("npx vue-cli-service build .\\app\\components\\content-scripts\\src\\main.js --dest dist/content-scripts --mode content-scripts --no-clean"))
 });
 
-gulp.task('dist:manifest', function() {
+gulp.task('build:manifest', function() {
     return gulp.src('app/manifest.json')
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('dist:size', function() {
+gulp.task('build:size', function() {
     return gulp.src('dist/**/*')
         .pipe($.size( { title: 'build', gzip: true} ));
 });
 
 gulp.task('build', gulp.series(
-    'dist:clean',
-    'dist:locales',
-    'dist:images',
-    'dist:manifest',
-    'dist:background',
-    'dist:popover', 
-    'dist:options',
-    'dist:content-scripts',
-    'dist:size'
+    'build:clean',
+    'build:locales',
+    'build:images',
+    'build:manifest',
+    'build:background',
+    'build:popover', 
+    'build:options',
+    'build:content-scripts',
+    'build:size'
 ));
