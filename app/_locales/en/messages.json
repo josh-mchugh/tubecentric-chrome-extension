@@ -1,0 +1,11 @@
+{
+    "appName": {
+      "message": "tubecentric",
+      "description": "The name of the application"
+    },
+    "appDescription": {
+      "message": "Send scheduled tweets from YouTube&#39;s edit video page.",
+      "description": "The description of the application"
+    }
+}
+  
