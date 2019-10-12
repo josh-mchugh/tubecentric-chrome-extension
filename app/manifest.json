@@ -32,9 +32,6 @@
             "js": [
                 "content-scripts/js/app.js"
             ],
-            "css": [
-                "content-scripts/css/app.css"
-            ],
             "run_at": "document_end",
             "all_frames": false
         }
@@ -46,5 +43,10 @@
         },
         "default_title": "tubecentric",
         "default_popup": "popup/index.html"
-    }
+    },
+    "web_accessible_resources": [
+        "content-scripts/css/*",
+        "content-scripts/fonts/*",
+        "content-scripts/img/*"
+    ]
 }

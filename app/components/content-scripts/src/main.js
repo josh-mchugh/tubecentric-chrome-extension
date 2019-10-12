@@ -2,25 +2,27 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import fomantic from '@fomanticCss';
+import $ from "jquery";
+import browser from "webextension-polyfill";
+import "./styles/main.scss";
 
 Vue.config.productionTip = false;
 
+console.log("Hello Hello! Content script");
+
 (function() {
 
-  const playlists = document.getElementsByClassName("input-container playlists");
-  const right = document.getElementById("right");
+  const link = $("<link>").attr("rel", "stylesheet")
+    .attr("href", browser.runtime.getURL("/content-scripts/css/app.css"));
+  
+    $("head").append(link);
 
-  console.log('Hello...');
+  const container = $('.input-container.playlists');
 
-  if (playlists.length > 0) {
+  if (container.length > 0) {
 
-    console.log("Hello Hello! Content script");
-    
-    const appElement = document.createElement("div");
-    appElement.setAttribute("id", "tcApp");
-
-    right.insertBefore(appElement, playlists.nextSibling);
+    const appComponent = $("<div>").attr("id", "tcApp");
+    $(container).append(appComponent)
 
     new Vue({
       el: "#tcApp",
