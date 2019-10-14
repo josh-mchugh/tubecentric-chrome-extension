@@ -1,9 +1,9 @@
-'use strict';
+import * as browser  from "webextension-polyfill";
 
-chrome.runtime.onInstalled.addListener(details => {
-  console.log('previousVersion', details.previousVersion);
+browser.runtime.onInstalled.addListener(details => {
+  console.log("previousVersion", details.previousVersion);
 });
 
-chrome.browserAction.setBadgeText({text: '\'Allo'});
+browser.browserAction.setBadgeText({ text: "Allo" });
 
-console.log('\'Allo \'Allo! Event Page for Browser Action');
+console.log("Allo 'Allo! Event Page for Browser Action");

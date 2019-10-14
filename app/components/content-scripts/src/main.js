@@ -11,18 +11,18 @@ Vue.config.productionTip = false;
 console.log("Hello Hello! Content script");
 
 (function() {
-
-  const link = $("<link>").attr("rel", "stylesheet")
-    .attr("href", browser.runtime.getURL("/content-scripts/css/app.css"));
   
-    $("head").append(link);
+  const link = $("<link>")
+    .attr("rel", "stylesheet")
+    .attr("href", browser.runtime.getURL("/content-scripts/css/app.css"));
 
-  const container = $('.input-container.playlists');
+  $("head").append(link);
+
+  const container = $(".input-container.playlists");
 
   if (container.length > 0) {
-
     const appComponent = $("<div>").attr("id", "tcApp");
-    $(container).append(appComponent)
+    $(container).append(appComponent);
 
     new Vue({
       el: "#tcApp",
