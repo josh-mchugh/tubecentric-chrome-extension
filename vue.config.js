@@ -1,20 +1,23 @@
 // vue.config.js
-const path = require('path')
+const path = require("path");
 
 function isContentScripts() {
-    return process.env.VUE_APP_MODE === 'content-scripts';
+  return process.env.VUE_APP_MODE === "content-scripts";
 }
 
 module.exports = {
-    publicPath: process.env.PUBLIC_PATH || '/',
-    filenameHashing: !isContentScripts(),
-    chainWebpack: config => {
+  publicPath: process.env.PUBLIC_PATH || "/",
+  filenameHashing: !isContentScripts(),
+  // Work around for error in docker build
+  lintOnSave: process.env.NODE_ENV !== 'production',
+  chainWebpack: config => {
+    config.resolve.alias.set(
+      "@fomanticCss",
+      path.resolve(__dirname, "fomantic/dist/semantic.min.css")
+    );
 
-        config.resolve.alias.set('@fomanticCss', path.resolve(__dirname, 'fomantic/dist/semantic.min.css'));
-
-        if (isContentScripts()) {
-            config.optimization.splitChunks(false);
-        }
+    if (isContentScripts()) {
+      config.optimization.splitChunks(false);
     }
-}
-  
+  }
+};
