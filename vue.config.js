@@ -13,8 +13,7 @@ module.exports = {
         config.resolve.alias.set('@fomanticCss', path.resolve(__dirname, 'fomantic/dist/semantic.min.css'));
 
         if (isContentScripts()) {
-            config.optimization
-                .splitChunks(false);
+            config.optimization.splitChunks(false);
         }
     }
 }
