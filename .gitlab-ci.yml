@@ -5,7 +5,7 @@ services:
 stages:
   - build
 
-maven-build:
+build:
   image: node:lts-alpine
   stage: build
   script: 
