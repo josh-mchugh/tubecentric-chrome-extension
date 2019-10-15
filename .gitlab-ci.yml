@@ -9,10 +9,10 @@ maven-build:
   image: node:lts-alpine
   stage: build
   script: 
-    - RUN npm install
-    - RUN npm install -g gulp
-    - RUN gulp init
-    - RUN gulp package
+    - npm install
+    - npm install -g gulp
+    - gulp init
+    - gulp package
   artifacts:
     paths:
       - package/
