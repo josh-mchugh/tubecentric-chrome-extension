@@ -15,4 +15,4 @@ maven-build:
     - gulp package
   artifacts:
     paths:
-      - package/
+      - package/*.zip

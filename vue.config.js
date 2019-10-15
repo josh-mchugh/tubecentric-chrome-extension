@@ -11,11 +11,7 @@ module.exports = {
   // Work around for error in docker build
   lintOnSave: process.env.NODE_ENV !== 'production',
   chainWebpack: config => {
-    config.resolve.alias.set(
-      "@fomanticCss",
-      path.resolve(__dirname, "fomantic/dist/semantic.min.css")
-    );
-
+    
     if (isContentScripts()) {
       config.optimization.splitChunks(false);
     }
