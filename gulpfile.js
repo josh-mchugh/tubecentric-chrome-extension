@@ -81,13 +81,13 @@ gulp.task("build:size", function() {
 gulp.task("build", gulp.series(
     "build:clean",
     gulp.parallel(
-        "build:locales",
-        "build:images",
-        "build:manifest",
-        "build:background",
-        "build:popup",
-        "build:options",
-        "build:content-scripts",
+      "build:locales",
+      "build:images",
+      "build:manifest",
+      "build:background",
+      "build:popup",
+      "build:options",
+      "build:content-scripts",
     ),
     "build:size"
   )
