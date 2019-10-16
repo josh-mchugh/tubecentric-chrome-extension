@@ -6,7 +6,7 @@ stages:
   - build
 
 build:
-  image: node:lts-alpine
+  image: node:lts
   stage: build
   script: 
     - npm install
