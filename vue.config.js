@@ -1,5 +1,6 @@
 // vue.config.js
 const path = require("path");
+const fs = require('fs');
 
 function isContentScripts() {
   return process.env.VUE_APP_MODE === "content-scripts";
@@ -13,7 +14,7 @@ module.exports = {
   chainWebpack: config => {
     
     config.node.set('__dirname', false);
-    config.resolve.alias.set("fomantic", path.resolve(__dirname,  "fomantic/dist"));
+    config.resolve.alias.set("fomantic", path.resolve(fs.realpathSync(process.cwd()),  "fomantic/dist"));
 
     if (isContentScripts()) {
       config.optimization.splitChunks(false);
