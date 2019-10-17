@@ -14,7 +14,7 @@ module.exports = {
     
     config.resolve.alias.set(
       "fomantic",
-      path.resolve(__dirname, "fomantic/dist/")
+      path.join(__dirname, "fomantic/dist/")
     );
 
     if (isContentScripts()) {
