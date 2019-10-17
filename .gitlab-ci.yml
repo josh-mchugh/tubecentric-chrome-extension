@@ -5,13 +5,11 @@ services:
 stages:
   - build
 
-cache:
-    paths:
-      - node_modules/
-
 build:
-  image: node:lts
+  image: linuxbrew/debian:latest
   stage: build
+  before_script:
+    - brew install node@10
   script: 
     - npm install
     - npm install -g gulp
