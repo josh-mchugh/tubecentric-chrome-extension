@@ -6,11 +6,8 @@ stages:
   - build
 
 build:
-  image: linuxbrew/debian:latest
+  image: node:lts-alpine
   stage: build
-  before_script:
-    - brew install node
-    - brew postinstall node
   script: 
     - npm install
     - npm install -g gulp
