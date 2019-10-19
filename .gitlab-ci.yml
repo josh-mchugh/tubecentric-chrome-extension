@@ -9,7 +9,8 @@ build:
   image: linuxbrew/debian:latest
   stage: build
   before_script:
-    - brew install node@10
+    - brew install node
+    - brew postinstall node
   script: 
     - npm install
     - npm install -g gulp
