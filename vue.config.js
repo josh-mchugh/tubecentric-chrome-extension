@@ -13,7 +13,7 @@ module.exports = {
   chainWebpack: config => {
     
     config.resolve.alias.set(
-      "@fomantic",
+      "fomantic",
       path.resolve(__dirname, "fomantic/dist/")
     );
 
