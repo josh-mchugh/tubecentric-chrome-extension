@@ -1,6 +1,4 @@
-image: docker:stable
-services:
-  - docker:stable-dind
+image: node:lts-alpine
 
 stages:
   - build

@@ -11,7 +11,7 @@ gulp.task("init:fomantic", function() {
 });
 
 gulp.task("init", gulp.series(
-    "init:fomantic"
+    "init:fomantic",
 ));
 
 gulp.task("build:clean", del.bind(null, ["dist", "package"]));
