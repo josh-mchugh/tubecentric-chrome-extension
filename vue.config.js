@@ -13,6 +13,9 @@ module.exports = {
   chainWebpack: config => {
     
     config.resolve.alias.set("fomantic", path.resolve(__dirname, "fomantic/dist/"));
+    config.resolve.modules.add("fomantic/dist/");
+    //config.resolveLoader.moduleExtensions.add("fomantic/dist/");
+    //config.resolveLoader.packageMains.add("fomantic/dist/");
 
     if (isContentScripts()) {
       config.optimization.splitChunks(false);
