@@ -11,14 +11,15 @@ gulp.task("init:fomantic", function() {
 });
 
 gulp.task("init:fomantic:copy", function() {
-  return gulp.src("fomantic/dist")
+  return gulp.src("fomantic/dist/**/*")
     .pipe(gulp.dest("app/components/popup/src/vendor/fomantic"))
     .pipe(gulp.dest("app/components/options/src/vendor/fomantic"))
     .pipe(gulp.dest("app/components/content-scripts/src/vendor/fomantic"));
 });
 
 gulp.task("init", gulp.series(
-    "init:fomantic"
+    "init:fomantic",
+    "init:fomantic:copy"
 ));
 
 gulp.task("build:clean", del.bind(null, ["dist", "package"]));

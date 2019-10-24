@@ -12,8 +12,8 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
   chainWebpack: config => {
     
-    config.resolve.alias.set("fomantic", path.resolve(__dirname, "fomantic/dist/"));
-    config.resolve.modules.add("fomantic/dist/");
+    //config.resolve.alias.set("fomantic", path.resolve(__dirname, "fomantic/dist/"));
+    //config.resolve.modules.add("fomantic/dist/");
     //config.resolveLoader.moduleExtensions.add("fomantic/dist/");
     //config.resolveLoader.packageMains.add("fomantic/dist/");
 
