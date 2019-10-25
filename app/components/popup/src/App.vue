@@ -16,5 +16,5 @@
 
 <style lang="scss">
   @import "./styles/main.scss";
-  @import "./vendor/fomantic/semantic.css";
+  @import "~fomantic/semantic.css";
 </style>

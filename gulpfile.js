@@ -10,16 +10,8 @@ gulp.task("init:fomantic", function() {
     .pipe($.shell("cd fomantic && gulp build"));
 });
 
-gulp.task("init:fomantic:copy", function() {
-  return gulp.src("fomantic/dist/**/*")
-    .pipe(gulp.dest("app/components/popup/src/vendor/fomantic"))
-    .pipe(gulp.dest("app/components/options/src/vendor/fomantic"))
-    .pipe(gulp.dest("app/components/content-scripts/src/vendor/fomantic"));
-});
-
 gulp.task("init", gulp.series(
-    "init:fomantic",
-    "init:fomantic:copy"
+    "init:fomantic"
 ));
 
 gulp.task("build:clean", del.bind(null, ["dist", "package"]));

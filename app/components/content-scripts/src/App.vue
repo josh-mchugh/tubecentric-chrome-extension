@@ -14,4 +14,4 @@
   </div>
 </template>
 
-<style scoped src="./vendor/fomantic/semantic.css"></style>
+<style scoped src="../../../../fomantic/dist/semantic.css"></style>

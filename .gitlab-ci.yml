@@ -4,11 +4,12 @@ stages:
 build:
   image: node:latest
   stage: build
-  script: 
+  before_script: 
     - npm ci
     - npm install -g gulp
+  script: 
     - gulp init
-    - gulp package
+    - npm run build:popover
   artifacts:
     paths:
       - package/*.zip
