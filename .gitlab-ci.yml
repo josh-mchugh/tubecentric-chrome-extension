@@ -3,6 +3,8 @@ stages:
 
 build:
   image: node:latest
+  services:
+    - docker:dind
   stage: build
   before_script: 
     - npm ci
