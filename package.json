@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run build:popover & npm run build:options & npm run build:content-scripts",
+    "build:popover": "vue-cli-service build app/components/popup/src/main.js --dest dist/popup --mode popup",
+    "build:options": "vue-cli-service build app/components/options/src/main.js --dest dist/options --mode options",
+    "build:content-scripts": "vue-cli-service build app/components/content-scripts/src/main.js --dest dist/content-scripts --mode content-scripts",
     "lint": "vue-cli-service lint",
     "test:e2e": "vue-cli-service test:e2e",
     "test:unit": "vue-cli-service test:unit"
