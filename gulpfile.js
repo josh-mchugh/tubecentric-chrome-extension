@@ -54,18 +54,18 @@ gulp.task("build:background", function() {
 
 gulp.task("build:popup", function() {
   return gulp.src("app/components/popup", { read: false })
-    .pipe($.shell("npx vue-cli-service build app/components/popup/src/main.js --dest dist/popup --mode popup --no-clean"));
+    .pipe($.shell("npm run build:popover"));
 });
 
 gulp.task("build:options", function() {
   return gulp.src("app/components/options", { read: false })
-    .pipe($.shell("npx vue-cli-service build app/components/options/src/main.js --dest dist/options --mode options --no-clean"));
+    .pipe($.shell("npm run build:options"));
 });
 
 gulp.task("build:content-scripts", function() {
   return gulp
     .src("app/components/content-scripts", { read: false })
-    .pipe($.shell("npx vue-cli-service build app/components/content-scripts/src/main.js --dest dist/content-scripts --mode content-scripts --no-clean"));
+    .pipe($.shell("npm run build:content-scripts"));
 });
 
 gulp.task("build:manifest", function() {
@@ -81,13 +81,13 @@ gulp.task("build:size", function() {
 gulp.task("build", gulp.series(
     "build:clean",
     gulp.parallel(
-        "build:locales",
-        "build:images",
-        "build:manifest",
-        "build:background",
-        "build:popup",
-        "build:options",
-        "build:content-scripts",
+      "build:locales",
+      "build:images",
+      "build:manifest",
+      "build:background",
+      "build:popup",
+      "build:options",
+      "build:content-scripts",
     ),
     "build:size"
   )
