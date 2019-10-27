@@ -6,6 +6,7 @@ build:
   stage: build
   before_script: 
     - npm ci
+    - npm install -g @vue/cli
     - npm install -g gulp
   script: 
     - gulp init
