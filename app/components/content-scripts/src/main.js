@@ -4,7 +4,6 @@ import router from "./router";
 import store from "./store";
 import $ from "jquery";
 import browser from "webextension-polyfill";
-import "./styles/main.scss";
 
 Vue.config.productionTip = false;
 

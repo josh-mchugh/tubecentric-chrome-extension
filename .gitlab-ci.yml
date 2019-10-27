@@ -2,16 +2,15 @@ stages:
   - build
 
 build:
-  image: node:latest
-  services:
-    - docker:dind
+  image: node:lts-alpine
   stage: build
   before_script: 
     - npm ci
+    - npm install -g @vue/cli
     - npm install -g gulp
   script: 
     - gulp init
-    - npm run build:popover
+    - gulp package
   artifacts:
     paths:
       - package/*.zip
