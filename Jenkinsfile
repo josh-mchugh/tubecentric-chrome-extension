@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'node:10.17.0-alpine'
+            image 'node:lts-alpine'
             args '-u root --privileged'
         }
     }
