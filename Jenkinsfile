@@ -9,7 +9,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'npm install'
-                sh 'npm install -g gulp --save-dev'
+                sh 'npm install gulp --save-dev'
                 sh 'gulp init'
                 sh 'gulp package' 
             }
