@@ -12,6 +12,8 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
   chainWebpack: config => {
 
+    config.resolve.alias.set("fomantic", path.resolve(__dirname, "fomantic/dist/"));
+
     if (isContentScripts()) {
       config.optimization.splitChunks(false);
     }
