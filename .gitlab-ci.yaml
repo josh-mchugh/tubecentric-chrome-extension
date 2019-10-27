@@ -1,3 +1,5 @@
+# NOTE: RENAMED FILE TO PREVENT CI/CD Kic off
+# Can't find fomantic css 
 stages:
   - build
 

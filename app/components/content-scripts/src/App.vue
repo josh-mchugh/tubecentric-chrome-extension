@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  @import url("./styles/main.scss");
-  @import url('~fomantic/semantic.min.css');
+<style scoped src="../../../../fomantic/dist/semantic.css"></style>
+<style lang="scss" scoped>
+  @import "./styles/main.scss";
 </style>
