@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'npm ci'
-                sh 'npm install -g gulp'
+                sh 'npm install'
+                sh 'npm install -g gulp --save-dev'
                 sh 'gulp init'
                 sh 'gulp package' 
             }
