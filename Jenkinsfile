@@ -11,11 +11,6 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'mkdir ~/.npm-global'
-                sh 'npm config set prefix "~/.npm-global"'
-                sh 'export PATH=~/.npm-global/bin:$PATH'
-                sh 'source ~/.profile'
-
                 sh 'npm install'
                 sh 'npm install -g gulp --save-dev'
                 sh 'gulp init'
