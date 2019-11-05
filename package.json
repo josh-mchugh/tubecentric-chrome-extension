@@ -16,6 +16,8 @@
     "core-js": "^3.3.4",
     "fomantic-ui": "^2.7.8",
     "jquery": "^3.4.1",
+    "portal-vue": "^2.1.6",
+    "uri-template.js": "^0.1.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1",
